@@ -24,11 +24,12 @@
         "esri/Map",
         "esri/views/MapView",
         "esri/layers/FeatureLayer",
+        "esri/widgets/Home",
         "dojo/domReady!"
       ],
       function(
         Map, MapView,
-        FeatureLayer
+        FeatureLayer, Home
       ) {
 
         var map = new Map({
@@ -95,6 +96,13 @@
           url: "http://cypress.forestry.oregonstate.edu:6080/arcgis/rest/services/olsen_fpf/GBGH_IDU/MapServer/0"
         });
         map.add(fpfBndLayer);
+
+        var homeBtn = new Home({
+          view: view
+        });
+
+        // Add the home button to the top left corner of the view
+        view.ui.add(homeBtn, "top-left");
 
       });
   </script>
