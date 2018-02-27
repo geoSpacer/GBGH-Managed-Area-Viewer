@@ -41,10 +41,10 @@
           map: map,
 
           extent: { // autocasts as new Extent()
-            xmin: -13600000,
-            ymin: 5500000,
-            xmax: -13440000,
-            ymax: 5572000,
+            xmin: -13566500,
+            ymin: 5517100,
+            xmax: -13514100,
+            ymax: 5543300,
             spatialReference: 102100
           }
         });
@@ -80,7 +80,7 @@
 
         // GBGH North IDU constraint layer.
         var vegclassLayer = new FeatureLayer({
-          url: "http://cypress.forestry.oregonstate.edu:6080/arcgis/rest/services/olsen_fpf/GBGH_IDU/MapServer/2",
+          url: "http://cypress.forestry.oregonstate.edu:6080/arcgis/rest/services/olsen_fpf/GBGH_IDU_201802191631/MapServer/2",
           outFields: ["*"],
           popupTemplate: template
         });
