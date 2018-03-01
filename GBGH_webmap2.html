@@ -60,13 +60,13 @@
        **************************************************************/
 
       var template = { // autocasts as new PopupTemplate()
-        title: "{CoverType_Desc} cover type",
-        content: "<p>Model year 2012 - Federal</p>" +
-          "<ul><li>Tree size is: {Size_Desc}</li>" +
-          "<li>Tree cover is: {Canopy_Desc}</li>" +
-          "<li>Tree layers is: {Layers_Desc}</li></ul>",
+        title: "{fed_constraint} Scenario Constraint Area - {Forested}",
+        content: "<p>Model year 2012 - Current Policy</p>" +
+          "<ul><li>Ownership is: {OWNER}</li>" +
+          "<li>PVT Management Grp: {PVT_MNG_GR}</li>" +
+          "<li>Trees are > Pole: {sizeGT5}</li></ul>",
         fieldInfos: [{
-          fieldName: "VEGCLASS",
+          fieldName: "OWNER",
           format: {
             digitSeparator: true, // Use a comma separator for large numbers
             places: 0 // Sets the number of decimal places to 0 and rounds up
@@ -80,7 +80,7 @@
 
         // GBGH North IDU constraint layer.
         var vegclassLayer = new FeatureLayer({
-          url: "http://cypress.forestry.oregonstate.edu:6080/arcgis/rest/services/olsen_fpf/GBGH_IDU/MapServer/2",
+          url: "http://cypress.forestry.oregonstate.edu:6080/arcgis/rest/services/olsen_fpf/GBGH_mapServer_IDU/MapServer/3",
           outFields: ["*"],
           popupTemplate: template
         });
@@ -88,12 +88,12 @@
         map.add(vegclassLayer);
 
         var northBndLayer = new FeatureLayer({
-          url: "http://cypress.forestry.oregonstate.edu:6080/arcgis/rest/services/olsen_fpf/GBGH_IDU/MapServer/1"
+          url: "http://cypress.forestry.oregonstate.edu:6080/arcgis/rest/services/olsen_fpf/GBGH_mapServer_IDU/MapServer/1"
         });
         map.add(northBndLayer);
 
         var fpfBndLayer = new FeatureLayer({
-          url: "http://cypress.forestry.oregonstate.edu:6080/arcgis/rest/services/olsen_fpf/GBGH_IDU/MapServer/0"
+          url: "http://cypress.forestry.oregonstate.edu:6080/arcgis/rest/services/olsen_fpf/GBGH_mapServer_IDU/MapServer/0"
         });
         map.add(fpfBndLayer);
 
