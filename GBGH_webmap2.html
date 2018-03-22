@@ -95,12 +95,13 @@
         "esri/views/MapView",
         "esri/layers/FeatureLayer",
         "esri/widgets/Home",
+        "esri/widgets/Expand",
         "esri/widgets/BasemapGallery",
         "dojo/domReady!"
       ],
       function(
         Map, MapView,
-        FeatureLayer, Home, BasemapGallery
+        FeatureLayer, Home, Expand, BasemapGallery
       ) {
 
         var map = new Map({
@@ -121,13 +122,24 @@
         });
 
         var basemapGallery = new BasemapGallery({
-          view: view
+          view: view,
+          container: document.createElement("div")
         });
 
-        // add the widget to the top right corver of the view
-        view.ui.add(basemapGallery, {
-          position: "top-right"
+        // Create an expand instance and set the content property
+        // to the DOM node of the basemap gallery widget
+        // Use an ESRI icon font to represent the content Inside
+        // of the expand widgets
+
+        var bgExpand = new Expand({
+          view: view,
+          content: basemapGallery.domNode,
+          expandIconClass: "esri-icon-basemap"
         });
+
+        // add the expand instance to the UI
+        view.ui.add(bgExpand, "top-right");
+
 
       /*************************************************************
        * The PopupTemplate content is the text that appears inside the
