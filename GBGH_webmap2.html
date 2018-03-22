@@ -19,6 +19,14 @@
     }
   </style>
 
+  <script>
+    const dojoConfig = {
+      has: {
+        "esri-featurelayer-webgl": 1
+      }
+    };
+  </script>
+
   <script type="text/plain" id="constraint-arcade">
     // returns the text values for fed_constraint field codes
     if ($feature.fed_constraint == 0) {
@@ -87,15 +95,16 @@
         "esri/views/MapView",
         "esri/layers/FeatureLayer",
         "esri/widgets/Home",
+        "esri/widgets/BasemapGallery",
         "dojo/domReady!"
       ],
       function(
         Map, MapView,
-        FeatureLayer, Home
+        FeatureLayer, Home, BasemapGallery
       ) {
 
         var map = new Map({
-          basemap: "hybrid"
+          basemap: "osm"
         });
 
         var view = new MapView({
@@ -109,6 +118,15 @@
             ymax: 5543300,
             spatialReference: 102100
           }
+        });
+
+        var basemapGallery = new BasemapGallery({
+          view: view
+        });
+
+        // add the widget to the top right corver of the view
+        view.ui.add(basemapGallery, {
+          position: "top-right"
         });
 
       /*************************************************************
