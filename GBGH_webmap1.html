@@ -80,7 +80,7 @@
 
         // GBGH North IDU constraint layer.
         var vegclassLayer = new FeatureLayer({
-          url: "http://cypress.forestry.oregonstate.edu:6080/arcgis/rest/services/olsen_fpf/GBGH_IDU/MapServer/2",
+          url: "https://cypress.forestry.oregonstate.edu/arcgis/rest/services/olsen_fpf/GBGH_IDU/MapServer/2",
           outFields: ["*"],
           popupTemplate: template
         });
@@ -88,12 +88,12 @@
         map.add(vegclassLayer);
 
         var northBndLayer = new FeatureLayer({
-          url: "http://cypress.forestry.oregonstate.edu:6080/arcgis/rest/services/olsen_fpf/GBGH_IDU/MapServer/1"
+          url: "https://cypress.forestry.oregonstate.edu/arcgis/rest/services/olsen_fpf/GBGH_IDU/MapServer/1"
         });
         map.add(northBndLayer);
 
         var fpfBndLayer = new FeatureLayer({
-          url: "http://cypress.forestry.oregonstate.edu:6080/arcgis/rest/services/olsen_fpf/GBGH_IDU/MapServer/0"
+          url: "https://cypress.forestry.oregonstate.edu/arcgis/rest/services/olsen_fpf/GBGH_IDU/MapServer/0"
         });
         map.add(fpfBndLayer);
 
